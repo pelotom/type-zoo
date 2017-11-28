@@ -12,7 +12,7 @@ yarn add type-zoo
 
 ### `unknown`
 
-A more principled `any`. Anything can be assigned to `unknown` but nothing can be done with a value of type `unknown` without further inspection (type guards/predicates). The same idea as [Flow's `mixed` type](https://flow.org/en/docs/types/mixed/).
+A more principled `any`. Anything can be assigned to `unknown` but nothing can be done with an `unknown` value without further inspection (type guards/predicates). The same idea as [Flow's `mixed` type](https://flow.org/en/docs/types/mixed/).
 
 See: https://github.com/Microsoft/TypeScript/issues/10715
 
