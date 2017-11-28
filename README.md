@@ -52,7 +52,7 @@ See: https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
 
 ### `Required<T>`
 
-Make all properties of `T` required and non-nullable.
+The opposite of `Partial`. Make all properties of `T` required and non-nullable.
 
 See: https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
 
