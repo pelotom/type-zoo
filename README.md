@@ -58,3 +58,8 @@ The opposite of `Partial`. Make all properties of `T` required and non-nullable.
 
 See: https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
 
+---
+
+## Related Projects
+
+[`typelevel-ts`](https://github.com/gcanti/typelevel-ts) and [`typical`](https://github.com/tycho01/typical) are two projects with similar goals to this one. The main difference is that those libraries are more focused on advanced type-level computation, whereas Type Zoo is meant to capture more basic type operators which have been proposed as candidates for inclusion in `lib.d.ts`, or even as first-class language primitives. The idea is that these types will hopefully make their way into the language proper, at which point you can simply stop importing them from `type-zoo` and be on your merry way.
