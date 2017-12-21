@@ -1,6 +1,6 @@
 {
   "name": "type-zoo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A menagerie of useful type operators for TypeScript",
   "types": "index.d.ts",
   "repository": "https://github.com/pelotom/type-zoo",
