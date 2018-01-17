@@ -19,6 +19,11 @@ type Diff<T extends string, U extends string> = (
 )[T];
 
 /**
+ * Find the overlapping variants between two string unions.
+ */
+type Overlap<T extends string, U extends string> = Diff<T, Diff<T, U>>;
+
+/**
  * Drop keys `K` from `T`.
  *
  * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
