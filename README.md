@@ -28,6 +28,12 @@ See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
 
 ---
 
+### `Overlap<T extends string, U extends string>`
+
+Find the overlapping variants between two string unions.
+
+---
+
 ### `Omit<T, K extends keyof T>`
 
 Drop keys `K` from `T`.
