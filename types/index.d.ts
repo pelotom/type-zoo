@@ -1,14 +1,6 @@
 // TypeScript Version: 2.6
 
 /**
- * The type of all values; nothing is known about it a priori
- * except that it exists. The same idea as Flow's `mixed` type.
- *
- * @see https://github.com/Microsoft/TypeScript/issues/10715
- */
-export type unknown = {} | undefined | null;
-
-/**
  * Remove the variants of the second union of string literals from
  * the first.
  *
@@ -21,16 +13,16 @@ export type Diff<T extends string, U extends string> = (
 )[T];
 
 /**
- * Find the overlapping variants between two string unions.
- */
-export type Overlap<T extends string, U extends string> = Diff<T, Diff<T, U>>;
-
-/**
  * Drop keys `K` from `T`.
  *
  * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
  */
 export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
+
+/**
+ * Find the overlapping variants between two string unions.
+ */
+export type Overlap<T extends string, U extends string> = Diff<T, Diff<T, U>>;
 
 /**
  * Like `T & U`, but where there are overlapping properties using the
@@ -64,6 +56,11 @@ export type NoInfer<T> = T & { [K in keyof T]: T[K] };
 export type NonNullable<T> = T & {};
 
 /**
+ * Forgets contextual knowledge of partiality of keys.
+ */
+export type Purify<T extends string> = { [P in T]: T; }[T];
+
+/**
  * Make all properties of `T` required and non-nullable.
  *
  * @see https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
@@ -73,6 +70,9 @@ export type Required<T> = {
 };
 
 /**
- * Forgets contextual knowledge of partiality of keys.
+ * The type of all values; nothing is known about it a priori
+ * except that it exists. The same idea as Flow's `mixed` type.
+ *
+ * @see https://github.com/Microsoft/TypeScript/issues/10715
  */
-export type Purify<T extends string> = { [P in T]: T; }[T];
+export type unknown = {} | undefined | null;
