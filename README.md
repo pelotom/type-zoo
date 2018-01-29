@@ -1,4 +1,4 @@
-# Type Zoo
+# Type Zoo [![Build Status](https://travis-ci.org/pelotom/type-zoo.svg?branch=master)](https://travis-ci.org/pelotom/type-zoo)
 
 TypeScript ships with some handy user-definable type operators: `Partial`, `Readonly`, `Pick` and `Record`. However many other useful operators have been demonstrated in GitHub issue comments and elsewhere. This repository is intended to collect all this folklore in one place, so you can stop copying and pasting these solutions into project after project.
 
