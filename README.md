@@ -12,39 +12,9 @@ yarn add type-zoo
 
 ## API
 
-### `unknown`
-
-A more principled `any`. Anything can be assigned to `unknown` but nothing can be done with an `unknown` value without further inspection (type guards/predicates). The same idea as [Flow's `mixed` type](https://flow.org/en/docs/types/mixed/).
-
-See: https://github.com/Microsoft/TypeScript/issues/10715
-
----
-
 ### `Diff<T extends string, U extends string>`
 
 Remove the variants of the second union of string literals from the first.
-
-See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
-
----
-
-### `Overlap<T extends string, U extends string>`
-
-Find the overlapping variants between two string unions.
-
----
-
-### `Omit<T, K extends keyof T>`
-
-Drop keys `K` from `T`.
-
-See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
-
----
-
-### `Overwrite<T, U>`
-
-Like `T & U`, but where there are overlapping properties using the type from `U` only.
 
 See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
 
@@ -76,6 +46,28 @@ See: https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
 
 ---
 
+### `Omit<T, K extends keyof T>`
+
+Drop keys `K` from `T`.
+
+See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+
+---
+
+### `Overlap<T extends string, U extends string>`
+
+Find the overlapping variants between two string unions.
+
+---
+
+### `Overwrite<T, U>`
+
+Like `T & U`, but where there are overlapping properties using the type from `U` only.
+
+See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+
+---
+
 ### `Required<T>`
 
 The opposite of `Partial`. Make all properties of `T` required and non-nullable.
@@ -83,6 +75,12 @@ The opposite of `Partial`. Make all properties of `T` required and non-nullable.
 See: https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
 
 ---
+
+### `unknown`
+
+A more principled `any`. Anything can be assigned to `unknown` but nothing can be done with an `unknown` value without further inspection (type guards/predicates). The same idea as [Flow's `mixed` type](https://flow.org/en/docs/types/mixed/).
+
+See: https://github.com/Microsoft/TypeScript/issues/10715
 
 ## Related Projects
 
