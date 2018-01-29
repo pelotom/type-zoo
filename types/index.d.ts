@@ -1,3 +1,5 @@
+// TypeScript Version: 2.6
+
 /**
  * The type of all values; nothing is known about it a priori
  * except that it exists. The same idea as Flow's `mixed` type.
@@ -52,8 +54,8 @@ export type Overwrite<T, U> = Omit<T, Overlap<keyof T, keyof U>> & U;
  *
  * @see https://github.com/Microsoft/TypeScript/issues/14829#issuecomment-322267089
  */
-export type NoInfer<T> = T & {[K in keyof T]: T[K]};
-                 
+export type NoInfer<T> = T & { [K in keyof T]: T[K] };
+
 /**
  * `T` without the possibility of `undefined` or `null`.
  *
@@ -69,4 +71,8 @@ export type NonNullable<T> = T & {};
 export type Required<T> = {
   [P in Purify<keyof T>]: NonNullable<T[P]>;
 };
-type Purify<T extends string> = { [P in T]: T; }[T];
+
+/**
+ * Forgets contextual knowledge of partiality of keys.
+ */
+export type Purify<T extends string> = { [P in T]: T; }[T];
