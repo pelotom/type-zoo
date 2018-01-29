@@ -37,7 +37,7 @@ export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
  * @see https://github.com/pelotom/type-zoo/issues/2
  * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
  */
-export type Overwrite<T, U> = Omit<T, Diff<keyof T, Diff<keyof T, keyof U>>> & U;
+export type Overwrite<T, U> = Omit<T, Overlap<keyof T, keyof U>> & U;
 
 /**
  * Use to prevent a usage of type `T` from being inferred in other generics.
@@ -53,7 +53,7 @@ export type Overwrite<T, U> = Omit<T, Diff<keyof T, Diff<keyof T, keyof U>>> & U
  * @see https://github.com/Microsoft/TypeScript/issues/14829#issuecomment-322267089
  */
 export type NoInfer<T> = T & {[K in keyof T]: T[K]};
-
+                 
 /**
  * `T` without the possibility of `undefined` or `null`.
  *
