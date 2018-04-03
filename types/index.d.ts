@@ -1,10 +1,12 @@
-// TypeScript Version: 2.6
+// TypeScript Version: 2.8
 
 /**
  * Remove the variants of the second union of string literals from
  * the first.
  *
- * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+ * TypeScript Documentation suggests that as of 2.8 you should use the built-in "Exclude" instead.
+ *
+ * @see https://github.com/Microsoft/TypeScript-Handbook/blame/master/pages/release%20notes/TypeScript%202.8.md#L245
  */
 export type Diff<T extends string, U extends string> = (
   & { [P in T]: P }
@@ -15,9 +17,9 @@ export type Diff<T extends string, U extends string> = (
 /**
  * Drop keys `K` from `T`.
  *
- * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+ * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
  */
-export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
 /**
  * Find the overlapping variants between two string unions.
@@ -29,9 +31,11 @@ export type Overlap<T extends string, U extends string> = Diff<T, Diff<T, U>>;
  * type from U only.
  *
  * @see https://github.com/pelotom/type-zoo/issues/2
- * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+ * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377692897
  */
-export type Overwrite<T, U> = Omit<T, Overlap<keyof T, keyof U>> & U;
+export type Overwrite<T, U> = {
+  [P in Exclude<keyof T, keyof U>]: T[P]
+} & U;
 
 /**
  * Use to prevent a usage of type `T` from being inferred in other generics.
@@ -49,9 +53,8 @@ export type Overwrite<T, U> = Omit<T, Overlap<keyof T, keyof U>> & U;
 export type NoInfer<T> = T & { [K in keyof T]: T[K] };
 
 /**
- * `T` without the possibility of `undefined` or `null`.
- *
- * @see https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
+ * Deprecated: available in TypeScript Core as of 2.8
+ * @see https://github.com/Microsoft/TypeScript-Handbook/blame/master/pages/release%20notes/TypeScript%202.8.md#L203
  */
 export type NonNullable<T> = T & {};
 
