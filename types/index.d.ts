@@ -31,11 +31,9 @@ export type Overlap<T extends string, U extends string> = Diff<T, Diff<T, U>>;
  * type from U only.
  *
  * @see https://github.com/pelotom/type-zoo/issues/2
- * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377692897
+ * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
  */
-export type Overwrite<T, U> = {
-  [P in Exclude<keyof T, keyof U>]: T[P]
-} & U;
+export type Overwrite<T, U> = Omit<T, Extract<keyof T, keyof U>> & U;
 
 /**
  * Use to prevent a usage of type `T` from being inferred in other generics.
