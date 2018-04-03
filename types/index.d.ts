@@ -53,12 +53,6 @@ export type Overwrite<T, U> = {
 export type NoInfer<T> = T & { [K in keyof T]: T[K] };
 
 /**
- * Deprecated: available in TypeScript Core as of 2.8
- * @see https://github.com/Microsoft/TypeScript-Handbook/blame/master/pages/release%20notes/TypeScript%202.8.md#L203
- */
-export type NonNullable<T> = T & {};
-
-/**
  * Forgets contextual knowledge of partiality of keys.
  */
 export type Purify<T extends string> = { [P in T]: T; }[T];
