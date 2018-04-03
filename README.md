@@ -41,12 +41,6 @@ See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
 
 ---
 
-### `Overlap<T extends string, U extends string>`
-
-Find the overlapping variants between two string unions.
-
----
-
 ### `Overwrite<T, U>`
 
 Like `T & U`, but where there are overlapping properties using the type from `U` only.

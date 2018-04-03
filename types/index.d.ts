@@ -1,26 +1,11 @@
 // TypeScript Version: 2.8
 
 /**
- * Remove the variants of the second union of string literals from
- * the first.
- *
- * TypeScript Documentation suggests that as of 2.8 you should use the built-in "Exclude" instead.
- *
- * @see https://github.com/Microsoft/TypeScript-Handbook/blame/master/pages/release%20notes/TypeScript%202.8.md#L245
- */
-export type Diff<T, K> = Exclude<T, K>;
-
-/**
  * Drop keys `K` from `T`.
  *
  * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
  */
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-
-/**
- * Find the overlapping variants between two string unions.
- */
-export type Overlap<T extends string, U extends string> = Exclude<T, Exclude<T, U>>;
 
 /**
  * Like `T & U`, but where there are overlapping properties using the
