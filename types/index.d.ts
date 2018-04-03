@@ -8,11 +8,7 @@
  *
  * @see https://github.com/Microsoft/TypeScript-Handbook/blame/master/pages/release%20notes/TypeScript%202.8.md#L245
  */
-export type Diff<T extends string, U extends string> = (
-  & { [P in T]: P }
-  & { [P in U]: never }
-  & { [x: string]: never }
-)[T];
+export type Diff<T, K> = Exclude<T, K>;
 
 /**
  * Drop keys `K` from `T`.
@@ -24,7 +20,7 @@ export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /**
  * Find the overlapping variants between two string unions.
  */
-export type Overlap<T extends string, U extends string> = Diff<T, Diff<T, U>>;
+export type Overlap<T extends string, U extends string> = Exclude<T, Exclude<T, U>>;
 
 /**
  * Like `T & U`, but where there are overlapping properties using the
