@@ -7,7 +7,7 @@
   "author": "Tom Crockett",
   "license": "MIT",
   "devDependencies": {
-    "dtslint": "^0.2.0",
+    "dtslint": "^0.3.0",
     "typescript": "^2.8.1"
   },
   "scripts": {
