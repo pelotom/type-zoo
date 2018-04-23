@@ -63,6 +63,15 @@ A more principled `any`. Anything can be assigned to `unknown` but nothing can b
 
 See: https://github.com/Microsoft/TypeScript/issues/10715
 
+--
+
+### `Pick#<T, K1 in keyof T, K2 in ...>`
+
+Like `Pick<>` but for `#` of nested levels!
+
+See https://gist.github.com/staltz/368866ea6b8a167fbdac58cddf79c1bf
+
+
 ## Related Projects
 
 [`typelevel-ts`](https://github.com/gcanti/typelevel-ts) and [`typical`](https://github.com/tycho01/typical) are two projects with similar goals to this one. The main difference is that those libraries are more focused on advanced type-level computation, whereas Type Zoo is meant to capture more basic type operators which have been proposed as candidates for inclusion in `lib.d.ts`, or even as first-class language primitives. The idea is that these types will hopefully make their way into the language proper, at which point you can simply stop importing them from `type-zoo` and be on your merry way.

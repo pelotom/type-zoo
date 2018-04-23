@@ -53,3 +53,51 @@ export type Required<T> = {
  * @see https://github.com/Microsoft/TypeScript/issues/10715
  */
 export type unknown = {} | undefined | null;
+
+/**
+ * Picks 2 levels deep into a nested object!
+ *
+ * @see https://gist.github.com/staltz/368866ea6b8a167fbdac58cddf79c1bf
+ */
+export type Pick2<T, K1 extends keyof T, K2 extends keyof T[K1]> = {
+  [P1 in K1]: {
+    [P2 in K2]: (T[K1])[P2];
+  };
+};
+
+/**
+ * Picks 3 levels deep into a nested object!
+ *
+ * @see https://gist.github.com/staltz/368866ea6b8a167fbdac58cddf79c1bf
+ */
+export type Pick3<
+  T,
+  K1 extends keyof T,
+  K2 extends keyof T[K1],
+  K3 extends keyof T[K1][K2]
+  > = {
+  [P1 in K1]: {
+    [P2 in K2]: {
+      [P3 in K3]: ((T[K1])[K2])[P3];
+    };
+  };
+};
+
+/**
+ * Picks 4 levels deep into a nested object!
+ */
+export type Pick4<
+  T,
+  K1 extends keyof T,
+  K2 extends keyof T[K1],
+  K3 extends keyof T[K1][K2],
+  K4 extends keyof T[K1][K2][K3]
+  > = {
+  [P1 in K1]: {
+    [P2 in K2]: {
+      [P3 in K3]: {
+        [P4 in K4]: (((T[K1])[K2])[K3])[P4];
+      };
+    };
+  };
+};
