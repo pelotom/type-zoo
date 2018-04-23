@@ -45,7 +45,7 @@ See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
 
 Like `T & U`, but where there are overlapping properties using the type from `U` only.
 
-See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+See: https://github.com/pelotom/type-zoo/pull/14#discussion_r183527882
 
 ---
 

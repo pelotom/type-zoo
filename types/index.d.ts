@@ -11,10 +11,11 @@ export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
  * Like `T & U`, but where there are overlapping properties using the
  * type from U only.
  *
- * @see https://github.com/pelotom/type-zoo/issues/2
- * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+ * @see Old: https://github.com/pelotom/type-zoo/issues/2
+ * @see Old: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+ * @see New: https://github.com/pelotom/type-zoo/pull/14#discussion_r183527882
  */
-export type Overwrite<T, U> = Omit<T, Extract<keyof T, keyof U>> & U;
+export type Overwrite<T, U> = Omit<T, keyof T & keyof U> & U;
 
 /**
  * Use to prevent a usage of type `T` from being inferred in other generics.
