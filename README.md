@@ -12,12 +12,6 @@ yarn add type-zoo
 
 ## API
 
-### `Diff<T extends string, U extends string>`
-
-Remove the variants of the second union of string literals from the first.
-
-See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
-
 ---
 
 ### `NoInfer<T>`
@@ -25,6 +19,7 @@ See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
 Use to prevent a usage of type `T` from being inferred in other generics.
 
 Example:
+
 ```ts
 declare function assertEqual<T>(actual: T, expected: NoInfer<T>): boolean;
 ```
@@ -38,25 +33,11 @@ See: https://github.com/Microsoft/TypeScript/issues/14829#issuecomment-322267089
 
 ---
 
-### `NonNullable<T>`
-
-`T` without the possibility of `undefined` or `null`.
-
-See: https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
-
----
-
 ### `Omit<T, K extends keyof T>`
 
 Drop keys `K` from `T`.
 
-See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
-
----
-
-### `Overlap<T extends string, U extends string>`
-
-Find the overlapping variants between two string unions.
+See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
 
 ---
 
@@ -64,7 +45,7 @@ Find the overlapping variants between two string unions.
 
 Like `T & U`, but where there are overlapping properties using the type from `U` only.
 
-See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
+See: https://github.com/pelotom/type-zoo/pull/14#discussion_r183527882
 
 ---
 
