@@ -101,3 +101,40 @@ export type Pick4<
     };
   };
 };
+
+// https://github.com/Microsoft/TypeScript/pull/21316
+
+/**
+ * Extracts union strings of all property names in T whose value is a function.
+ */
+// tslint:disable-next-line: semicolon strict-export-declare-modifiers ban-types
+export type FunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? K : never; }[keyof T];
+
+/**
+ * Creates a type that only includes the properties which are functions in T.
+ */
+export type FunctionProperties<T> = Pick<T, FunctionPropertyNames<T>>;
+
+/**
+ * Extracts union strings of all property names in T whose value is not a function.
+ */
+// tslint:disable-next-line: semicolon strict-export-declare-modifiers ban-types
+export type NonFunctionPropertyNames<T> = { [K in keyof T]: T[K] extends Function ? never : K; }[keyof T];
+
+/**
+ * Creates a type that only includes the properties which are functions in T.
+ */
+export type NonFunctionProperties<T> = Pick<T, NonFunctionPropertyNames<T>>;
+
+/**
+ * Creates a recursively readonly type
+ */
+// tslint:disable-next-line: semicolon strict-export-declare-modifiers
+export type DeepReadonly<T> = T extends any[] ? DeepReadonlyArray<T[number]> : T extends object ? DeepReadonlyObject<T> : T;
+
+export interface DeepReadonlyArray<T> extends ReadonlyArray<DeepReadonly<T>> {}
+
+// tslint:disable-next-line: semicolon strict-export-declare-modifiers
+export type DeepReadonlyObject<T> = {
+  readonly [P in NonFunctionPropertyNames<T>]: DeepReadonly<T[P]>;
+};

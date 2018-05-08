@@ -89,7 +89,7 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-"definitelytyped-header-parser@github:Microsoft/definitelytyped-header-parser#production":
+definitelytyped-header-parser@Microsoft/definitelytyped-header-parser#production:
   version "0.0.0"
   resolved "https://codeload.github.com/Microsoft/definitelytyped-header-parser/tar.gz/f074e863231ef0d79a31c0a9edaf1b82c98469ef"
   dependencies:
@@ -309,8 +309,8 @@ typescript@^2.8.1:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.1.tgz#6160e4f8f195d5ba81d4876f9c0cc1fbc0820624"
 
 typescript@next:
-  version "2.8.0-dev.20180127"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.8.0-dev.20180127.tgz#289893b34fc86d6ad572b4cbf01e6df815e22fdf"
+  version "2.9.0-dev.20180506"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.0-dev.20180506.tgz#e20070caa88fca90227cf040459402611a74e13f"
 
 wrappy@1:
   version "1.0.2"
