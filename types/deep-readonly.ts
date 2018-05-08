@@ -30,3 +30,12 @@ foo.bam.push({ bap: [] });
 
 // $ExpectError
 foo.bab.bab.bab = "hi";
+
+// $ExpectType DeepReadonlyArray<string>
+foo.baz;
+
+// $ExpectType DeepReadonlyObject<{ bab: { bab: string; }; }>
+foo.bab;
+
+// $ExpectType DeepReadonlyObject<{ bab: string; }>
+foo.bab.bab;
