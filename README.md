@@ -49,14 +49,6 @@ See: https://github.com/pelotom/type-zoo/pull/14#discussion_r183527882
 
 ---
 
-### `Required<T>`
-
-The opposite of `Partial`. Make all properties of `T` required and non-nullable.
-
-See: https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
-
----
-
 ### `unknown`
 
 A more principled `any`. Anything can be assigned to `unknown` but nothing can be done with an `unknown` value without further inspection (type guards/predicates). The same idea as [Flow's `mixed` type](https://flow.org/en/docs/types/mixed/).

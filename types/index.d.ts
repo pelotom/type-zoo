@@ -38,15 +38,6 @@ export type NoInfer<T> = T & { [K in keyof T]: T[K] };
 export type Purify<T extends string> = { [P in T]: T; }[T];
 
 /**
- * Make all properties of `T` required and non-nullable.
- *
- * @see https://github.com/Microsoft/TypeScript/issues/15012#issuecomment-346499713
- */
-export type Required<T> = {
-  [P in Purify<keyof T>]: NonNullable<T[P]>;
-};
-
-/**
  * The type of all values; nothing is known about it a priori
  * except that it exists. The same idea as Flow's `mixed` type.
  *
