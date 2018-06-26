@@ -5,7 +5,7 @@
  *
  * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
  */
-export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+export type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
 
 /**
  * Like `T & U`, but where there are overlapping properties using the

@@ -33,9 +33,9 @@ See: https://github.com/Microsoft/TypeScript/issues/14829#issuecomment-322267089
 
 ---
 
-### `Omit<T, K extends keyof T>`
+### `Omit<T, K extends keyof any>`
 
-Drop keys `K` from `T`.
+Drop keys `K` from `T` if they are present.
 
 See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
 
