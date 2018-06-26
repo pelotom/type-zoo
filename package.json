@@ -12,5 +12,8 @@
   },
   "scripts": {
     "test": "dtslint types"
-  }
+  },
+  "files": [
+    "types/index.d.ts"
+  ]
 }
