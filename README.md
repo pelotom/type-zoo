@@ -49,6 +49,14 @@ See: https://github.com/pelotom/type-zoo/pull/14#discussion_r183527882
 
 ---
 
+### `Param#<T extends Function>` and `ParamTypes<T extends Function>`
+
+These helpers extract the Parameter-types from Functions.
+
+See: https://github.com/pelotom/type-zoo/issues/22
+
+---
+
 ### `Pick#<T, K1 in keyof T, K2 in ...>`
 
 Like `Pick<>` but for `#` of nested levels!

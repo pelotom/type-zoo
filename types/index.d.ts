@@ -38,6 +38,45 @@ export type NoInfer<T> = T & { [K in keyof T]: T[K] };
 export type Purify<T extends string> = { [P in T]: T; }[T];
 
 /**
+ * Selects the type of the 0th parameter in a function-type
+ */
+export type Param0<Func> = Func extends (a: infer T, ...args: any[]) => any
+	? T
+  : never;
+/**
+ * Selects the type of the 1st parameter in a function-type
+ */
+export type Param1<Func> = Func extends (a: any, b: infer T, ...args: any[]) => any
+  ? T
+  : never;
+/**
+ * Selects the type of the 2nd parameter in a function-type
+ */
+export type Param2<Func> = Func extends (a: any, b: any, c: infer T, ...args: any[]) => any
+  ? T
+  : never;
+/**
+ * Selects the type of the 3rd parameter in a function-type
+ */
+export type Param3<Func> = Func extends (a: any, b: any, c: any, d: infer T, ...args: any[]) => any
+  ? T
+  : never;
+/**
+ * Selects the types of all the parameters in a function-type.
+ * Warnings:
+ *  - This is probably less performant if you're only looking up a single param! {@see Param0-Param# }
+ *  - This omits rest parameters (...args:any[])
+ */
+export type ParamTypes<F extends Function> = // tslint:disable-line
+  F extends () => any ? {} :
+  F extends (p0: infer P0) => any ? [P0] :
+  F extends (p0: infer P0, p1: infer P1) => any ? [P0, P1] :
+  F extends (p0: infer P0, p1: infer P1, p2: infer P2) => any ? [P0, P1, P2] :
+  F extends (p0: infer P0, p1: infer P1, p2: infer P2, p3: infer P3) => any ? [P0, P1, P2, P3] :
+  // ... -- extend this at your own risk, this could be bad for compilation performance!
+  never;
+
+/**
  * Picks 2 levels deep into a nested object!
  *
  * @see https://gist.github.com/staltz/368866ea6b8a167fbdac58cddf79c1bf
