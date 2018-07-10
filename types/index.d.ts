@@ -35,20 +35,16 @@ export type NoInfer<T> = T & { [K in keyof T]: T[K] };
 /**
  * Forgets contextual knowledge of partiality of keys.
  */
-export type Purify<T extends string> = { [P in T]: T; }[T];
+export type Purify<T extends string> = { [P in T]: T }[T];
 
 /**
  * Selects the type of the 0th parameter in a function-type
  */
-export type Param0<Func> = Func extends (a: infer T, ...args: any[]) => any
-	? T
-  : never;
+export type Param0<Func> = Func extends (a: infer T, ...args: any[]) => any ? T : never;
 /**
  * Selects the type of the 1st parameter in a function-type
  */
-export type Param1<Func> = Func extends (a: any, b: infer T, ...args: any[]) => any
-  ? T
-  : never;
+export type Param1<Func> = Func extends (a: any, b: infer T, ...args: any[]) => any ? T : never;
 /**
  * Selects the type of the 2nd parameter in a function-type
  */
@@ -67,14 +63,18 @@ export type Param3<Func> = Func extends (a: any, b: any, c: any, d: infer T, ...
  *  - This is probably less performant if you're only looking up a single param! {@see Param0-Param# }
  *  - This omits rest parameters (...args:any[])
  */
-export type ParamTypes<F extends Function> = // tslint:disable-line
-  F extends () => any ? {} :
-  F extends (p0: infer P0) => any ? [P0] :
-  F extends (p0: infer P0, p1: infer P1) => any ? [P0, P1] :
-  F extends (p0: infer P0, p1: infer P1, p2: infer P2) => any ? [P0, P1, P2] :
-  F extends (p0: infer P0, p1: infer P1, p2: infer P2, p3: infer P3) => any ? [P0, P1, P2, P3] :
-  // ... -- extend this at your own risk, this could be bad for compilation performance!
-  never;
+export type ParamTypes<F extends Function> = F extends () => any // tslint:disable-line
+  ? {}
+  : F extends (p0: infer P0) => any
+    ? [P0]
+    : F extends (p0: infer P0, p1: infer P1) => any
+      ? [P0, P1]
+      : F extends (p0: infer P0, p1: infer P1, p2: infer P2) => any
+        ? [P0, P1, P2]
+        : F extends (p0: infer P0, p1: infer P1, p2: infer P2, p3: infer P3) => any
+          ? [P0, P1, P2, P3]
+          : // ... -- extend this at your own risk, this could be bad for compilation performance!
+            never;
 
 /**
  * Picks 2 levels deep into a nested object!
@@ -82,9 +82,7 @@ export type ParamTypes<F extends Function> = // tslint:disable-line
  * @see https://gist.github.com/staltz/368866ea6b8a167fbdac58cddf79c1bf
  */
 export type Pick2<T, K1 extends keyof T, K2 extends keyof T[K1]> = {
-  [P1 in K1]: {
-    [P2 in K2]: (T[K1])[P2];
-  };
+  [P1 in K1]: { [P2 in K2]: (T[K1])[P2] }
 };
 
 /**
@@ -92,17 +90,8 @@ export type Pick2<T, K1 extends keyof T, K2 extends keyof T[K1]> = {
  *
  * @see https://gist.github.com/staltz/368866ea6b8a167fbdac58cddf79c1bf
  */
-export type Pick3<
-  T,
-  K1 extends keyof T,
-  K2 extends keyof T[K1],
-  K3 extends keyof T[K1][K2]
-  > = {
-  [P1 in K1]: {
-    [P2 in K2]: {
-      [P3 in K3]: ((T[K1])[K2])[P3];
-    };
-  };
+export type Pick3<T, K1 extends keyof T, K2 extends keyof T[K1], K3 extends keyof T[K1][K2]> = {
+  [P1 in K1]: { [P2 in K2]: { [P3 in K3]: ((T[K1])[K2])[P3] } }
 };
 
 /**
@@ -114,12 +103,4 @@ export type Pick4<
   K2 extends keyof T[K1],
   K3 extends keyof T[K1][K2],
   K4 extends keyof T[K1][K2][K3]
-  > = {
-  [P1 in K1]: {
-    [P2 in K2]: {
-      [P3 in K3]: {
-        [P4 in K4]: (((T[K1])[K2])[K3])[P4];
-      };
-    };
-  };
-};
+> = { [P1 in K1]: { [P2 in K2]: { [P3 in K3]: { [P4 in K4]: (((T[K1])[K2])[K3])[P4] } } } };
