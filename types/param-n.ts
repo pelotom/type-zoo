@@ -1,7 +1,11 @@
 import { Param0, Param1, Param2, Param3, ParamTypes } from 'type-zoo';
 
-function a() { return; }
-const b = () => { return; };
+function a() {
+  return;
+}
+const b = () => {
+  return;
+};
 
 // $ExpectType {}
 type A1 = Param0<typeof a>;
@@ -17,11 +21,21 @@ type A3 = A2[0];
 // $ExpectError
 type B3 = B2[0];
 
-const c1 = (a: string) => { return; };
-const c2 = (a: number, b: boolean) => { return; };
-function c3(a: boolean[], b: object, c: any, d: "foo") { return; }
-function c4(a: number, ...args: string[]) { return; }
-function c5(a: boolean[], b: object, c: any, d: "foo", e: 1, ...args: any[]) { return; }
+const c1 = (a: string) => {
+  return;
+};
+const c2 = (a: number, b: boolean) => {
+  return;
+};
+function c3(a: boolean[], b: object, c: any, d: 'foo') {
+  return;
+}
+function c4(a: number, ...args: string[]) {
+  return;
+}
+function c5(a: boolean[], b: object, c: any, d: 'foo', e: 1, ...args: any[]) {
+  return;
+}
 
 // $ExpectType string
 type C1 = Param0<typeof c1>;
