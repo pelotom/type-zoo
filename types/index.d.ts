@@ -1,5 +1,5 @@
+// TODO change verion to 3.0 to make FuncArgs work properly
 // TypeScript Version: 2.8
-
 /**
  * Drop keys `K` from `T`.
  *
@@ -72,9 +72,13 @@ export type ParamTypes<F extends Function> = F extends () => any // tslint:disab
       : F extends (p0: infer P0, p1: infer P1, p2: infer P2) => any
         ? [P0, P1, P2]
         : F extends (p0: infer P0, p1: infer P1, p2: infer P2, p3: infer P3) => any
-          ? [P0, P1, P2, P3]
-          : // ... -- extend this at your own risk, this could be bad for compilation performance!
-            never;
+          ? [P0, P1, P2, P3] // ... -- extend this at your own risk, this could be bad for compilation performance!
+          : never;
+/**
+ * Selects all arguments from a provided function type.
+ * To get specific argument use index: FuncArgs<(a: number, b: string) => void>[1] // string
+ */
+export type FuncArgs<F extends Function> = F extends (...args: infer Args) => any ? Args : never;
 
 /**
  * Picks 2 levels deep into a nested object!
