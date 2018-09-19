@@ -41,6 +41,14 @@ See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
 
 ---
 
+### `OmitStrict<T, K extends keyof T>`
+
+Drop keys `K` from `T`, where `K` must exist in `T`.
+
+See: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
+
+---
+
 ### `Overwrite<T, U>`
 
 Like `T & U`, but where there are overlapping properties using the type from `U` only.

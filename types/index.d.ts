@@ -1,11 +1,18 @@
 // TypeScript Version: 2.8
 
 /**
- * Drop keys `K` from `T`.
+ * Drop keys `K` from `T` if they are present.
  *
  * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
  */
 export type Omit<T, K extends keyof any> = T extends any ? Pick<T, Exclude<keyof T, K>> : never;
+
+/**
+ * Drop keys `K` from `T`, where `K` must exist in `T`.
+ *
+ * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
+ */
+export type OmitStrict<T, K extends keyof T> = T extends any ? Pick<T, Exclude<keyof T, K>> : never;
 
 /**
  * Like `T & U`, but where there are overlapping properties using the
