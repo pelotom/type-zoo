@@ -63,6 +63,13 @@ Like `Pick<>` but for `#` of nested levels!
 
 See https://gist.github.com/staltz/368866ea6b8a167fbdac58cddf79c1bf
 
+---
+
+### `Public#<T>`
+
+Get only the public members of a type or class. When applied to a class T with private members, Public<T> can be implemented.
+
+See https://github.com/Microsoft/TypeScript/issues/18499#issuecomment-429272545
 
 ## Related Projects
 
