@@ -45,6 +45,26 @@ export type NoInfer<T> = T & { [K in keyof T]: T[K] };
 export type Purify<T extends string> = { [P in T]: T }[T];
 
 /**
+ * Get the public interface of a type. This is useful for working with classes that have private members.
+ *
+ * export class Foo {
+ *   private priv: string;
+ *
+ *   bar(): number {
+ *     // ...
+ *   }
+ * }
+ *
+ * export type IFoo = Public<Foo>;
+ *
+ * // Can mock or fake
+ * const fakeFoo: IFoo = {
+ *   bar(): { return 1;}
+ * }
+ */
+export type Public<T> = { [P in keyof T]: T[P] };
+
+/**
  * Selects the type of the 0th parameter in a function-type
  */
 export type Param0<Func> = Func extends (a: infer T, ...args: any[]) => any ? T : never;
