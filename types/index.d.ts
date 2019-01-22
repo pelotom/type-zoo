@@ -22,7 +22,7 @@ export type OmitStrict<T, K extends keyof T> = T extends any ? Pick<T, Exclude<k
  * @see Old: https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-307871458
  * @see New: https://github.com/pelotom/type-zoo/pull/14#discussion_r183527882
  */
-export type Overwrite<T, U> = Omit<T, keyof T & keyof U> & U;
+export type Overwrite<T, U extends { [K in keyof T]?: any }> = Omit<T, keyof T & keyof U> & U;
 
 /**
  * Use to prevent a usage of type `T` from being inferred in other generics.

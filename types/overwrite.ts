@@ -7,3 +7,6 @@ foo.y;
 
 // $ExpectType number
 foo.x;
+
+// $ExpectError
+type E = Overwrite<{ x: boolean; y: string }, { z: number }>;
