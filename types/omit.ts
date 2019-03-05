@@ -2,11 +2,11 @@ import { Omit, OmitStrict } from 'type-zoo';
 
 declare const omitExistingField: Omit<{ x: boolean; y: string }, 'x'>;
 
-// $ExpectType string
-omitExistingField.y;
-
 // $ExpectError
 omitExistingField.x;
+
+// $ExpectType string
+omitExistingField.y;
 
 declare const omitNonexistentField: Omit<{ x: boolean }, 'y'>;
 
@@ -16,13 +16,13 @@ omitNonexistentField.x;
 // $ExpectError
 omitNonexistentField.y;
 
-// $ExpectError
-declare const omitNonexistentFieldStrict: OmitStrict<{ x: boolean }, 'y'>;
-
 declare const omitExistingFieldStrict: OmitStrict<{ x: boolean; y: string }, 'x'>;
 
+// $ExpectError
+omitExistingFieldStrict.x;
+
 // $ExpectType string
-omitExistingField.y;
+omitExistingFieldStrict.y;
 
 // $ExpectError
-omitExistingField.x;
+declare const omitNonexistentFieldStrict: OmitStrict<{ x: boolean }, 'y'>;
