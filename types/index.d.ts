@@ -1,6 +1,27 @@
 // TypeScript Version: 2.8
 
 /**
+ * Extract from `T` those types that are assignable to `U`, where `U` must exist in `T`.
+ *
+ * Similar to `Pick` but for types.
+ * Similar to `Extract` but requires the extraction list to be composed of valid members of `T`.
+
+ *
+ * @see https://github.com/pelotom/type-zoo/issues/37
+ */
+export type ExtractStrict<T, U extends T> = T extends U ? T : never;
+
+/**
+ * Exclude from `T` those types that are assignable to `U`, where `U` must exist in `T`.
+ *
+ * Similar to `OmitStrict` but for types.
+ * Similar to `Exclude` but requires the exclusion list to be composed of valid members of `T`.
+ *
+ * @see https://github.com/pelotom/type-zoo/issues/37
+ */
+export type ExcludeStrict<T, U extends T> = T extends U ? never : T;
+
+/**
  * Drop keys `K` from `T` if they are present.
  *
  * @see https://github.com/Microsoft/TypeScript/issues/12215#issuecomment-377567046
@@ -99,9 +120,8 @@ export type ParamTypes<F extends Function> = F extends () => any // tslint:disab
       : F extends (p0: infer P0, p1: infer P1, p2: infer P2) => any
         ? [P0, P1, P2]
         : F extends (p0: infer P0, p1: infer P1, p2: infer P2, p3: infer P3) => any
-          ? [P0, P1, P2, P3]
-          : // ... -- extend this at your own risk, this could be bad for compilation performance!
-            never;
+          ? [P0, P1, P2, P3] // ... -- extend this at your own risk, this could be bad for compilation performance!
+          : never;
 
 /**
  * Picks 2 levels deep into a nested object!
