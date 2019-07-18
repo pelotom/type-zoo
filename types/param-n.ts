@@ -7,9 +7,9 @@ const b = () => {
   return;
 };
 
-// $ExpectType {}
+// $ExpectType unknown
 type A1 = Param0<typeof a>;
-// $ExpectType {}
+// $ExpectType unknown
 type B1 = Param0<typeof b>;
 // $ExpectType {}
 type A2 = ParamTypes<typeof a>;
@@ -39,7 +39,7 @@ function c5(a: boolean[], b: object, c: any, d: 'foo', e: 1, ...args: any[]) {
 
 // $ExpectType string
 type C1 = Param0<typeof c1>;
-// $ExpectType {}
+// $ExpectType unknown
 type C2 = Param1<typeof c1>;
 // $ExpectType boolean
 type C3 = Param1<typeof c2>;
