@@ -1,4 +1,4 @@
-// TypeScript Version: 2.8
+// TypeScript Version: 3.5
 
 /**
  * Extract from `T` those types that are assignable to `U`, where `U` must exist in `T`.
