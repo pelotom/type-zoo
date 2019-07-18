@@ -14,6 +14,26 @@ yarn add type-zoo
 
 ---
 
+### `ExcludeStrict<T, U extends T>`
+
+Exclude from `T` those types that are assignable to `U`, where `U` must exist in `T`.
+
+Similar to `Exclude` but requires the exclusion list to be composed of valid members of `T`.
+
+See: https://github.com/pelotom/type-zoo/issues/37
+
+---
+
+### `ExtractStrict<T, U extends T>`
+
+Extract from `T` those types that are assignable to `U`, where `U` must exist in `T`.
+
+Similar to `Extract` but requires the extraction list to be composed of valid members of `T`.
+
+See: https://github.com/pelotom/type-zoo/issues/37
+
+---
+
 ### `NoInfer<T>`
 
 Use to prevent a usage of type `T` from being inferred in other generics.
