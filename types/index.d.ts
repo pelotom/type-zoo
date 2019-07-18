@@ -5,7 +5,6 @@
  *
  * Similar to `Pick` but for types.
  * Similar to `Extract` but requires the extraction list to be composed of valid members of `T`.
-
  *
  * @see https://github.com/pelotom/type-zoo/issues/37
  */
