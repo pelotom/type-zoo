@@ -3,7 +3,6 @@
 /**
  * Extract from `T` those types that are assignable to `U`, where `U` must exist in `T`.
  *
- * Similar to `Pick` but for types.
  * Similar to `Extract` but requires the extraction list to be composed of valid members of `T`.
  *
  * @see https://github.com/pelotom/type-zoo/issues/37
@@ -13,7 +12,6 @@ export type ExtractStrict<T, U extends T> = T extends U ? T : never;
 /**
  * Exclude from `T` those types that are assignable to `U`, where `U` must exist in `T`.
  *
- * Similar to `OmitStrict` but for types.
  * Similar to `Exclude` but requires the exclusion list to be composed of valid members of `T`.
  *
  * @see https://github.com/pelotom/type-zoo/issues/37

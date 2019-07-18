@@ -18,7 +18,7 @@ yarn add type-zoo
 
 Exclude from `T` those types that are assignable to `U`, where `U` must exist in `T`.
 
-Similar to `OmitStrict` but for types. Similar to `Exclude` but requires the exclusion list to be composed of valid members of `T`.
+Similar to `Exclude` but requires the exclusion list to be composed of valid members of `T`.
 
 See: https://github.com/pelotom/type-zoo/issues/37
 
@@ -28,7 +28,7 @@ See: https://github.com/pelotom/type-zoo/issues/37
 
 Extract from `T` those types that are assignable to `U`, where `U` must exist in `T`.
 
-Similar to `Pick` but for types. Similar to `Extract` but requires the extraction list to be composed of valid members of `T`.
+Similar to `Extract` but requires the extraction list to be composed of valid members of `T`.
 
 See: https://github.com/pelotom/type-zoo/issues/37
 
